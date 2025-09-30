@@ -1,0 +1,133 @@
+/* src/components/Card.css */
+
+.card-container {
+  perspective: 1500px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 650px; /* Ukuran lebih lebar untuk desktop */
+}
+
+/* Card Utama */
+.flashcard {
+  height: 400px; /* Lebih tinggi */
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  position: relative;
+  cursor: pointer;
+  box-shadow: var(--box-shadow-elevate);
+  border-radius: 15px;
+}
+
+.flashcard:hover {
+  box-shadow: var(--box-shadow-hover);
+}
+
+.flashcard.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+/* Sisi Depan: Pertanyaan */
+.card-front {
+  background-color: var(--color-card-bg-front);
+  color: var(--color-text-light);
+  border: 6px solid var(--color-accent); /* Border Emas */
+}
+
+.card-front .card-text {
+  font-size: 2em; /* Pertanyaan lebih menonjol */
+  font-weight: 700;
+}
+
+/* Sisi Belakang: Jawaban */
+.card-back {
+  background-color: var(--color-text-light);
+  color: var(--color-text-dark);
+  transform: rotateY(180deg);
+  border: 6px solid var(--color-primary);
+}
+
+.card-back .card-text {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.card-category {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 700;
+  font-size: 1em;
+  padding: 8px 20px;
+  border-radius: 25px; /* Pill shape */
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--color-primary);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* ACTIONS */
+.card-actions {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 650px;
+}
+
+.btn {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 50px; /* Tombol bulat */
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: 45%;
+  font-size: 1.1em;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-review {
+  background-color: var(--color-danger);
+  color: var(--color-text-light);
+}
+
+.btn-master {
+  background-color: var(--color-success);
+  color: var(--color-text-light);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Card (Mobile) */
+@media (max-width: 650px) {
+  .flashcard {
+    height: 350px;
+  }
+  .card-actions {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .btn {
+    width: 100%;
+    padding: 12px 20px;
+  }
+}

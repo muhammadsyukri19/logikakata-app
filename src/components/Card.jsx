@@ -1,51 +1,39 @@
 // src/components/Card.jsx
-import React, { useState } from "react";
-import "styles/Card.css"; // Import styling lokal
+import React from "react";
+import "./Card.css"; // Import styling lokal
 
-const Card = ({ question, answer, category, onMaster, onReview }) => {
-  const [isFlipped, setIsFlipped] = useState(false);
-
-  const handleFlip = () => {
-    setIsFlipped(!isFlipped);
-  };
-
-  const handleAction = (action) => {
-    if (action === "master") {
-      onMaster(true);
-    } else {
-      onReview(false);
-    }
-    setIsFlipped(false); // Reset flip state setelah aksi
-  };
+const Card = ({ data, isFlipped, onFlip, onMaster, onReview }) => {
+  // Komponen Card hanya menerima state dan fungsi dari Hook (Container)
 
   return (
     <div className="card-container">
+      {/* Flashcard */}
       <div
         className={`flashcard ${isFlipped ? "flipped" : ""}`}
-        onClick={handleFlip}
+        onClick={onFlip} // Panggil fungsi flip dari Hook
       >
         <div className="card-face card-front">
-          <span className="card-category">{category}</span>
-          <p className="card-text">{question}</p>
+          <span className="card-category">
+            {data.category} - {data.subCategory}
+          </span>
+          <p className="card-text">{data.question}</p>
           <small>Klik untuk melihat jawaban...</small>
         </div>
         <div className="card-face card-back">
-          <p className="card-text">{answer}</p>
+          <p className="card-text">{data.answer}</p>
+          <span className={`card-status card-status-${data.status}`}>
+            {data.status.replace("_", " ").toUpperCase()}
+          </span>
         </div>
       </div>
 
+      {/* Actions (Hanya muncul jika sudah di-flip) */}
       {isFlipped && (
         <div className="card-actions">
-          <button
-            className="btn btn-review"
-            onClick={() => handleAction("review")}
-          >
+          <button className="btn btn-review" onClick={onReview}>
             🔄 Perlu Review
           </button>
-          <button
-            className="btn btn-master"
-            onClick={() => handleAction("master")}
-          >
+          <button className="btn btn-master" onClick={onMaster}>
             ✅ Kuasai
           </button>
         </div>

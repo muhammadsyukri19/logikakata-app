@@ -1,56 +1,74 @@
-/* src/styles/App.css */
+/* src/styles/App.css - GLOBAL STYLING & LAYOUT */
 :root {
-  --color-primary: #a10000; /* Merah Tua/Marun - Cocok untuk Sejarah/Bahasa */
-  --color-secondary: #ffbe00; /* Kuning Emas - Kontras yang elegan */
-  --color-background: #f4f4f4;
-  --color-text-dark: #333;
-  --color-text-light: #fff;
+  --color-primary: #8b0000; /* Merah Marun Tua */
+  --color-accent: #ffb81c; /* Emas/Kuning */
+  --color-background: #fcfcfc; /* Background putih bersih */
+  --color-card-bg-front: #a32222;
+  --color-success: #27ae60; /* Hijau lebih matang */
+  --color-danger: #c0392b; /* Merah gelap */
+  --color-text-dark: #2c3e50;
+  --color-text-light: #fefefe;
+  --box-shadow-elevate: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --box-shadow-hover: 0 12px 35px rgba(0, 0, 0, 0.15);
 }
 
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Poppins", "Inter", sans-serif;
   background-color: var(--color-background);
   color: var(--color-text-dark);
   margin: 0;
-  padding: 0;
+  line-height: 1.6;
 }
 
+/* Container utama (Lebar Penuh) */
 .app-container {
-  max-width: 900px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 20px;
-  text-align: center;
+  padding: 30px;
 }
 
+/* Header */
 .app-header {
   padding: 10px 0;
-  border-bottom: 3px solid var(--color-primary);
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  border-bottom: 4px solid var(--color-primary);
+  text-align: left;
 }
 
 .app-header h1 {
   color: var(--color-primary);
-  font-size: 2.5em;
+  font-size: 3em;
   margin: 0;
+  font-weight: 800;
 }
 
-.app-header p {
-  color: #666;
-  margin-top: 5px;
+/* MAIN LAYOUT: Grid untuk Laptop (Desktop First) */
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* 1 bagian untuk dashboard, 2 bagian untuk card */
+  gap: 40px;
+  align-items: flex-start;
 }
 
-.app-footer {
-  margin-top: 30px;
-  padding: 10px 0;
-  border-top: 1px solid #ccc;
-  font-size: 0.8em;
-  color: #888;
+.dashboard-area {
+  position: sticky; /* Agar dashboard tetap terlihat saat scroll */
+  top: 30px;
 }
 
-.completion-message {
-  padding: 30px;
-  border: 2px solid var(--color-secondary);
-  background-color: #fff;
-  border-radius: 8px;
-  margin-top: 40px;
+.card-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+/* Responsive: Untuk Tablet/Mobile */
+@media (max-width: 1024px) {
+  .main-layout {
+    grid-template-columns: 1fr; /* Kembali ke layout 1 kolom */
+    gap: 20px;
+  }
+  .dashboard-area {
+    position: static;
+  }
 }

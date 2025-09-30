@@ -1,32 +1,47 @@
-// src/data/historyData.js
-
 export const initialFlashcards = [
   {
     id: 1,
     category: "Sejarah",
+    subCategory: "Kemerdekaan",
     question: "Kapan Sumpah Pemuda dicetuskan?",
     answer: "28 Oktober 1928",
-    mastered: false,
+    status: "unreviewed", // Status baru: 'unreviewed', 'need_review', 'mastered'
+    lastReviewed: null,
   },
   {
     id: 2,
     category: "Bahasa",
+    subCategory: "Tata Bahasa",
     question: "Apa itu kata 'Verba Transitif'?",
     answer: "Kata kerja yang memerlukan objek langsung.",
-    mastered: false,
+    status: "unreviewed",
+    lastReviewed: null,
   },
   {
     id: 3,
     category: "Sejarah",
+    subCategory: "Tokoh",
     question: "Siapa Bapak Proklamator Indonesia?",
     answer: "Soekarno dan Mohammad Hatta",
-    mastered: false,
+    status: "unreviewed",
+    lastReviewed: null,
   },
   {
     id: 4,
     category: "Bahasa",
+    subCategory: "Majas",
     question: "Apa fungsi dari 'Majas Metafora'?",
     answer: "Gaya bahasa perbandingan tidak langsung.",
-    mastered: false,
+    status: "unreviewed",
+    lastReviewed: null,
+  },
+  {
+    id: 5,
+    category: "Sejarah",
+    subCategory: "Perang Dunia",
+    question: "Apa nama perjanjian yang mengakhiri Perang Dunia I?",
+    answer: "Perjanjian Versailles",
+    status: "unreviewed",
+    lastReviewed: null,
   },
 ];
