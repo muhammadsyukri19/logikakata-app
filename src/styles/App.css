@@ -1,0 +1,56 @@
+/* src/styles/App.css */
+:root {
+  --color-primary: #a10000; /* Merah Tua/Marun - Cocok untuk Sejarah/Bahasa */
+  --color-secondary: #ffbe00; /* Kuning Emas - Kontras yang elegan */
+  --color-background: #f4f4f4;
+  --color-text-dark: #333;
+  --color-text-light: #fff;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text-dark);
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.app-header {
+  padding: 10px 0;
+  border-bottom: 3px solid var(--color-primary);
+  margin-bottom: 20px;
+}
+
+.app-header h1 {
+  color: var(--color-primary);
+  font-size: 2.5em;
+  margin: 0;
+}
+
+.app-header p {
+  color: #666;
+  margin-top: 5px;
+}
+
+.app-footer {
+  margin-top: 30px;
+  padding: 10px 0;
+  border-top: 1px solid #ccc;
+  font-size: 0.8em;
+  color: #888;
+}
+
+.completion-message {
+  padding: 30px;
+  border: 2px solid var(--color-secondary);
+  background-color: #fff;
+  border-radius: 8px;
+  margin-top: 40px;
+}
